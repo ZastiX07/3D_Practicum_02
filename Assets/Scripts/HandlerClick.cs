@@ -37,11 +37,12 @@ public class HandlerClick : MonoBehaviour
 
     public IEnumerator IncreaseValue()
     {
+        var wait = new WaitForSeconds(_interval);
+
         while (true)
         {
             _counter.ExtendValue();
-
-            yield return new WaitForSeconds(_interval);
+            yield return wait;
         }
     }
 }
