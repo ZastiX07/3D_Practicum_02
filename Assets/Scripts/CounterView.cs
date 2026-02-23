@@ -1,22 +1,18 @@
+using System;
 using UnityEngine;
 
 public class CounterView : MonoBehaviour
 {
     [SerializeField] private Counter _counter;
 
-    private void Start()
-    {
-        GlobalEventManager.CounterView();
-    }
-
     private void OnEnable()
     {
-        GlobalEventManager.OnCounterView += CounterValueView;
+        _counter.OnValueChanged += CounterValueView;
     }
 
     private void OnDisable()
     {
-        GlobalEventManager.OnCounterView -= CounterValueView;
+        _counter.OnValueChanged -= CounterValueView;
     }
 
     private void CounterValueView()
